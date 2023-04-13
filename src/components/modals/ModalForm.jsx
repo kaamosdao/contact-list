@@ -2,6 +2,15 @@ import React from 'react';
 
 import s from './ModalForm.module.scss';
 
-const ModalForm = () => <div className={s.modalForm}>Form</div>;
+const ModalForm = () => {
+  const handleClick = (e) => {
+    e.stopPropagation();
+  };
+  return (
+    <div className={s.modalForm} onClick={handleClick} aria-hidden="true">
+      Form
+    </div>
+  );
+};
 
 export default ModalForm;
