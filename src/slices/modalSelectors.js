@@ -6,7 +6,7 @@ const selectShow = createSelector(
 );
 
 export const selectModal = createSelector(
-  (state) => state.modals.type,
+  (state) => state.modals.modal,
   (modal) => modal
 );
 
