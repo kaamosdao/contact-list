@@ -9,26 +9,26 @@ const AddContactForm = () => (
     <ul className={s.list}>
       <li className={s.item}>
         <label className={s.label} htmlFor="name">
-          Имя
+          Name
           <input
             className={s.input}
             type="text"
             name="name"
             id="name"
-            placeholder="Введите имя"
+            placeholder="First name"
             required
           />
         </label>
       </li>
       <li className={s.item}>
-        <label className={s.label} htmlFor="surName">
-          Имя
+        <label className={s.label} htmlFor="surname">
+          Surname
           <input
             className={s.input}
             type="text"
-            name="surName"
-            id="surName"
-            placeholder="Введите фамилию"
+            name="surname"
+            id="surname"
+            placeholder="Last name"
             required
           />
         </label>
@@ -48,7 +48,7 @@ const AddContactForm = () => (
       </li>
       <li className={s.item}>
         <label className={s.label} htmlFor="phone">
-          Телефон
+          Phone
           <input
             className={s.input}
             type="tel"
