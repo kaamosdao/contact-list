@@ -1,0 +1,134 @@
+@import '../../../assets/styles/global/variables.scss';
+@import '../../../assets/styles/global/mixin.scss';
+
+.form {
+  width: 318px;
+  margin: auto;
+  padding: 40px 20px 40px;
+  box-sizing: border-box;
+  background-color: $white;
+  border-radius: 30px;
+
+  @media (min-width: $tablet-md-width) {
+    width: 80%;
+  }
+
+  @media (min-width: $desktop-sm-width) {
+    width: 90%;
+  }
+
+  @media (min-width: $desktop-md-width) {
+    padding: 60px;
+    border-radius: 50px;
+  }
+
+  @media (min-width: $desktop-lg-width) {
+    padding: 3.65%;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content);
+  row-gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @media (min-width: 1300px) {
+    grid-template-columns: repeat(2, 48.7%);
+    column-gap: 20px;
+  }
+
+  @media (min-width: $desktop-md-width) {
+    grid-template-columns: repeat(2, 48.7%);
+    row-gap: 34px;
+  }
+
+  @media (min-width: $desktop-lg-width) {
+    grid-template-columns: repeat(2, 48.5%);
+    column-gap: 3%;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input {
+  width: 100%;
+  height: 44px;
+  margin-top: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+  @include font(normal, 16px, 142%);
+  color: $black;
+  background-color: $beige100;
+  border: 1px solid $beige200;
+  border-radius: 10px;
+
+  @media (min-width: $desktop-md-width) {
+    height: 68px;
+    margin-top: 7px;
+    padding: 18px;
+    @include font(normal, 20px, 141%);
+  }
+}
+
+.input::placeholder {
+  color: $grey300;
+}
+
+.input:focus,
+.input:focus-visible {
+  color: $black;
+  border: 1px solid $grey300;
+  outline: none;
+}
+
+.input:hover {
+  background-color: $beige200;
+  cursor: pointer;
+}
+
+.label {
+  text-align: left;
+  width: 100%;
+  @include font(normal, 16px, 142%);
+
+  @media (min-width: $desktop-md-width) {
+    @include font(normal, 20px, 142%);
+  }
+}
+
+.buttonAdd {
+  width: 134px;
+  min-height: 45px;
+  margin-top: 35px;
+  padding: 12px;
+  @include font(normal, 16px, 130%);
+  color: $white;
+  background-color: $green400;
+  border: none;
+  border-radius: 10px;
+
+  @media (min-width: $desktop-md-width) {
+    width: 235px;
+    min-height: 58px;
+    margin-top: 50px;
+    padding: 15px;
+    @include font(normal, 20px, 130%);
+  }
+}
+
+.buttonAdd:hover {
+  background-color: $green300;
+  cursor: pointer;
+}
+
+.buttonAdd:active {
+  background-color: $green200;
+}
