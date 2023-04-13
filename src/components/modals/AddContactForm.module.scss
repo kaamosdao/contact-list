@@ -53,6 +53,7 @@
 }
 
 .item {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -131,4 +132,20 @@
 
 .buttonAdd:active {
   background-color: $green200;
+}
+
+.invalidTooltip {
+  position: absolute;
+  bottom: -20px;
+  color: $red200;
+  @include font(normal, 16px, 16px);
+}
+
+.invalid {
+  outline: 1px solid $red200;
+}
+
+.invalid:focus {
+  outline: 3px solid $red100;
+  border: 1px solid $red200;
 }
