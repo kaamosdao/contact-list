@@ -1,9 +1,12 @@
 import React from 'react';
+import Main from './components/Main';
+import Modal from './components/modals/Modal';
 
 const App = () => (
-  <div>
-    <p>App</p>
-  </div>
+  <>
+    <Main />
+    <Modal />
+  </>
 );
 
 export default App;
