@@ -16,11 +16,9 @@ const modals = {
 
 const Modal = () => {
   const show = useSelector(selectShow);
-  const { type } = useSelector(selectModal);
+  const modal = useSelector(selectModal);
   return (
-    <div className={cn('modal', { show })}>
-      {modals[type]}
-    </div>
+    <div className={cn('modal', { show })}>{modal && modals[modal.type]}</div>
   );
 };
 
