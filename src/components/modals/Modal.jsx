@@ -2,12 +2,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 
+import { closeModal } from '../../slices/modalSlice';
 import selectShow, { selectModal } from '../../slices/modalSelectors';
 
 import ModalForm from './ModalForm';
 
 import s from './Modal.module.scss';
-import { closeModal } from '../../slices/modalSlice';
 
 const cn = classNames.bind(s);
 
