@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { showModal } from '../slices/modalSlice';
+import { showModal } from '../store/slices/modalSlice';
 
 import modalType from '../types/types';
 

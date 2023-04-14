@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { closeModal } from '../../slices/modalSlice';
+import { closeModal } from '../../store/slices/modalSlice';
 
 import AddContactForm from './AddContactForm';
 
