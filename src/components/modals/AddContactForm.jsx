@@ -1,7 +1,10 @@
-/* eslint-disable no-octal-escape */
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import classnames from 'classnames/bind';
+
+import { closeModal } from '../../store/slices/modalSlice';
+import { addContact } from '../../store/slices/contactSlice';
 
 import schema from '../../schemas/validationSchema';
 
@@ -10,19 +13,16 @@ import s from './AddContactForm.module.scss';
 const cn = classnames.bind(s);
 
 const AddContactForm = () => {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: { name: '', surname: '', email: '', phone: '' },
     validationSchema: schema,
-    onSubmit: async (values, actions) => {
+    onSubmit: ({ name, surname, email, phone }, actions) => {
+      actions.setSubmitting(true);
+      dispatch(addContact({ name, surname, email, phone }));
       actions.setSubmitting(false);
-      // console.log(
-      //   JSON.stringify({
-      //     name: values.name,
-      //     surname: values.surname,
-      //     email: values.email,
-      //     phone: values.phone,
-      //   })
-      // );
+      dispatch(closeModal());
     },
   });
 
@@ -119,7 +119,11 @@ const AddContactForm = () => {
           </div>
         </li>
       </ul>
-      <button className={s.buttonAdd} type="submit">
+      <button
+        className={s.buttonAdd}
+        type="submit"
+        disabled={formik.isSubmitting}
+      >
         Add contact
       </button>
     </form>

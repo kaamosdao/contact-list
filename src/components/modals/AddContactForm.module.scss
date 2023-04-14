@@ -95,6 +95,17 @@
   cursor: pointer;
 }
 
+.input:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.input:disabled:hover {
+  background-color: $beige100;
+  opacity: 0.5;
+  cursor: default;
+}
+
 .label {
   text-align: left;
   width: 100%;
@@ -132,6 +143,17 @@
 
 .buttonAdd:active {
   background-color: $green200;
+}
+
+.buttonAdd:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.buttonAdd:disabled:hover {
+  background-color: $green400;
+  opacity: 0.5;
+  cursor: default;
 }
 
 .invalidTooltip {
