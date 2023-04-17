@@ -59,63 +59,6 @@
   align-items: flex-start;
 }
 
-.input {
-  width: 100%;
-  height: 44px;
-  margin-top: 8px;
-  padding: 10px;
-  box-sizing: border-box;
-  @include font(normal, 16px, 142%);
-  color: $black;
-  background-color: $beige100;
-  border: 1px solid $beige200;
-  border-radius: 10px;
-
-  @media (min-width: $desktop-md-width) {
-    height: 68px;
-    margin-top: 7px;
-    padding: 18px;
-    @include font(normal, 20px, 141%);
-  }
-}
-
-.input::placeholder {
-  color: $grey300;
-}
-
-.input:focus,
-.input:focus-visible {
-  color: $black;
-  border: 1px solid $grey300;
-  outline: none;
-}
-
-.input:hover {
-  background-color: $beige200;
-  cursor: pointer;
-}
-
-.input:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-
-.input:disabled:hover {
-  background-color: $beige100;
-  opacity: 0.5;
-  cursor: default;
-}
-
-.label {
-  text-align: left;
-  width: 100%;
-  @include font(normal, 16px, 142%);
-
-  @media (min-width: $desktop-md-width) {
-    @include font(normal, 20px, 142%);
-  }
-}
-
 .buttonAdd {
   width: 134px;
   min-height: 45px;
@@ -154,28 +97,4 @@
   background-color: $green400;
   opacity: 0.5;
   cursor: default;
-}
-
-.invalidTooltip {
-  position: absolute;
-  bottom: -20px;
-  color: $red200;
-  @include font(normal, 12px, 16px);
-  
-  @media (min-width: $tablet-lg-width) {
-    @include font(normal, 14px, 16px);
-  }
-
-  @media (min-width: $desktop-md-width) {
-    @include font(normal, 16px, 16px);
-  }
-}
-
-.invalid {
-  outline: 1px solid $red200;
-}
-
-.invalid:focus {
-  outline: 3px solid $red100;
-  border: 1px solid $red200;
 }
