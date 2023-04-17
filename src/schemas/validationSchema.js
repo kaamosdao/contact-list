@@ -12,7 +12,11 @@ export default yup.object().shape({
     .string()
     .max(20, 'Surname must be less than 20 characters')
     .required('Surname is required'),
-  email: yup.string().email('Incorrect email').required('Email is required'),
+  email: yup
+    .string()
+    .email('Incorrect email')
+    .max(30, 'Email must be less than 30 characters')
+    .required('Email is required'),
   phone: yup
     .string()
     .matches(phoneRegEx, {
