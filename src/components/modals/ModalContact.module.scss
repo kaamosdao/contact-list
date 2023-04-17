@@ -1,0 +1,102 @@
+@import '../../../assets/styles/global/variables.scss';
+@import '../../../assets/styles/global/mixin.scss';
+
+.modalContact {
+  position: relative;
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 20px;
+  width: 80%;
+  min-width: 320px;
+
+  @media (min-width: $tablet-md-width) {
+    width: 480px;
+  }
+
+  // @media (min-width: $tablet-lg-width) {
+  //   width: 720px;
+  // }
+
+  @media (min-width: $desktop-sm-width) {
+    width: 70%;
+  }
+
+  @media (min-width: $desktop-lg-width) {
+    max-width: 1500px;
+  }
+}
+
+.contactCard {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  padding: 10px;
+  width: auto;
+  max-width: 420px;
+  @include font(normal, 25px, 36px);
+
+  @media (min-width: $tablet-lg-width) {
+    margin: 20px auto;
+    max-width: 500px;
+    @include font(normal, 30px, 36px);
+  }
+}
+
+.name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  padding: 0;
+  @include font(normal, 18px, 36px);
+  list-style-type: none;
+
+  @media (min-width: $tablet-lg-width) {
+    max-width: 500px;
+    @include font(normal, 20px, 36px);
+  }
+}
+
+.email {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag {
+  color: $orange200;
+}
+
+.buttonClose {
+  position: absolute;
+  top: 3%;
+  right: 4%;
+  font-size: 30px;
+  color: $black;
+  border: none;
+  background-color: transparent;
+  transform: rotate(45deg);
+  cursor: pointer;
+
+  @media (min-width: $desktop-sm-width) {
+    top: 3%;
+    right: 2%;
+  }
+}
+
+.buttonClose:hover {
+  color: $orange300;
+}
+
+.buttonClose:active {
+  color: $orange100;
+}
