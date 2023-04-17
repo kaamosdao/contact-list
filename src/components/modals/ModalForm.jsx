@@ -1,21 +1,17 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-
-import { closeModal } from '../../store/slices/modalSlice';
+import PropTypes from 'prop-types';
 
 import AddContactForm from './AddContactForm';
 
 import s from './ModalForm.module.scss';
 
-const ModalForm = () => {
-  const dispatch = useDispatch();
-
+const ModalForm = ({ setShowModal }) => {
   const handleClick = (e) => {
     e.stopPropagation();
   };
 
   const handleClose = () => {
-    dispatch(closeModal());
+    setShowModal(false);
   };
 
   return (
@@ -23,9 +19,13 @@ const ModalForm = () => {
       <button className={s.buttonClose} type="button" onClick={handleClose}>
         <span className="visually-hidden">Close</span>+
       </button>
-      <AddContactForm />
+      <AddContactForm setShowModal={setShowModal} />
     </div>
   );
+};
+
+ModalForm.propTypes = {
+  setShowModal: PropTypes.func.isRequired,
 };
 
 export default ModalForm;

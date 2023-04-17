@@ -1,24 +1,19 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-
-import { closeModal, showModal } from '../store/slices/modalSlice';
 
 import modalType from '../types/types';
 
 import s from './ContactItem.module.scss';
 
 const ContactItem = ({ id, name, surname, email, phone }) => {
-  const dispatch = useDispatch();
-
   const handleClickVliew = () => {
-    dispatch(
-      showModal({
-        type: modalType.contact,
-        data: { id, name, surname, email, phone },
-      })
-    );
-    dispatch(closeModal());
+    // dispatch(
+    //   showModal({
+    //     type: modalType.contact,
+    //     data: { id, name, surname, email, phone },
+    //   })
+    // );
+    // dispatch(closeModal());
   };
 
   return (

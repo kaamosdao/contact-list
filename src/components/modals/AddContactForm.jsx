@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 
-import { closeModal } from '../../store/slices/modalSlice';
 import { addContact } from '../../store/slices/contactSlice';
 
 import schema from '../../schemas/validationSchema';
@@ -12,7 +12,7 @@ import s from './AddContactForm.module.scss';
 
 const cn = classnames.bind(s);
 
-const AddContactForm = () => {
+const AddContactForm = ({ setShowModal }) => {
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -22,7 +22,7 @@ const AddContactForm = () => {
       actions.setSubmitting(true);
       dispatch(addContact({ name, surname, email, phone }));
       actions.setSubmitting(false);
-      dispatch(closeModal());
+      setShowModal(false);
     },
   });
 
@@ -128,6 +128,10 @@ const AddContactForm = () => {
       </button>
     </form>
   );
+};
+
+AddContactForm.propTypes = {
+  setShowModal: PropTypes.func.isRequired,
 };
 
 export default AddContactForm;

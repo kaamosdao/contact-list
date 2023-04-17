@@ -1,9 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-
-import { closeModal } from '../../store/slices/modalSlice';
-import selectShow, { selectModal } from '../../store/selectors/modalSelectors';
 
 import ModalForm from './ModalForm';
 
@@ -11,28 +8,30 @@ import s from './Modal.module.scss';
 
 const cn = classNames.bind(s);
 
-const modals = {
-  form: <ModalForm />,
-};
-
-const Modal = () => {
-  const dispatch = useDispatch();
-  const show = useSelector(selectShow);
-  const modal = useSelector(selectModal);
-
+const Modal = ({ showModal, setShowModal, type }) => {
   const handleClick = () => {
-    dispatch(closeModal());
+    setShowModal(false);
+  };
+
+  const modals = {
+    form: <ModalForm setShowModal={setShowModal} />,
   };
 
   return (
     <div
-      className={cn('modal', { show })}
+      className={cn('modal', { show: showModal })}
       onClick={handleClick}
       aria-hidden="true"
     >
-      {modal && modals[modal.type]}
+      {modals[type]}
     </div>
   );
+};
+
+Modal.propTypes = {
+  showModal: PropTypes.bool.isRequired,
+  setShowModal: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default Modal;
