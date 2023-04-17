@@ -3,7 +3,7 @@ import React from 'react';
 import SectionAddButton from './SectionAddButton';
 import SectionContactList from './SectionContactList';
 
-import s from './Main.module.scss';
+import s from './styles/Main.module.scss';
 
 const Main = () => (
   <main className={s.main}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import s from './ContactItem.module.scss';
+import s from './styles/ContactItem.module.scss';
 
 const ContactItem = ({ contact, setShowModal, setModalData }) => {
   const handleClickVliew = () => {

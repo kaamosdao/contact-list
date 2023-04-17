@@ -4,7 +4,7 @@ import modalType from '../types/types';
 
 import Modal from './modals/Modal';
 
-import s from './SectionAddButton.module.scss';
+import s from './styles/SectionAddButton.module.scss';
 
 const SectionAddButton = () => {
   const [showModal, setShowModal] = useState(false);

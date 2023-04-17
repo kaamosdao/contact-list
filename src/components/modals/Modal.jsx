@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import ModalForm from './ModalForm';
 import ModalContact from './ModalContact';
 
-import s from './Modal.module.scss';
+import s from './styles/Modal.module.scss';
 
 const cn = classNames.bind(s);
 

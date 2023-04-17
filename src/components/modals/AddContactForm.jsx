@@ -8,7 +8,7 @@ import { addContact } from '../../store/slices/contactSlice';
 
 import schema from '../../schemas/validationSchema';
 
-import s from './AddContactForm.module.scss';
+import s from './styles/AddContactForm.module.scss';
 
 const cn = classnames.bind(s);
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import AddContactForm from './AddContactForm';
 
-import s from './ModalForm.module.scss';
+import s from './styles/ModalForm.module.scss';
 
 const ModalForm = ({ setShowModal }) => {
   const handleClick = (e) => {

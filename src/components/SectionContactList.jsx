@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 
 import selectContacts from '../store/selectors/contactSelectors';
 
+import modalType from '../types/types';
 import ContactItem from './ContactItem';
 
-import s from './SectionContactList.module.scss';
 import Modal from './modals/Modal';
-import modalType from '../types/types';
+
+import s from './styles/SectionContactList.module.scss';
 
 const SectionContactList = () => {
   const contacts = useSelector(selectContacts);

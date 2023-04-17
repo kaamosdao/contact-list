@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import s from './ModalContact.module.scss';
+import s from './styles/ModalContact.module.scss';
 
 const ModalContact = ({ contact, setShowModal }) => {
   const handleClick = (e) => {
