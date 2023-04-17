@@ -6,10 +6,12 @@ const phoneRegEx =
 export default yup.object().shape({
   name: yup
     .string()
+    .trim()
     .max(20, 'Name must be less than 20 characters')
     .required('Name is required'),
   surname: yup
     .string()
+    .trim()
     .max(20, 'Surname must be less than 20 characters')
     .required('Surname is required'),
   email: yup
