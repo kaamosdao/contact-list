@@ -19,11 +19,13 @@ const SectionAddButton = () => {
       <button className={s.button} type="button" onClick={handleClick}>
         Add contact
       </button>
-      <Modal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        type={modalType.form}
-      />
+      {showModal && (
+        <Modal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          type={modalType.form}
+        />
+      )}
     </section>
   );
 };
