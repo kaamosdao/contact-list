@@ -1,27 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import modalType from '../types/types';
-
 import s from './ContactItem.module.scss';
 
-const ContactItem = ({ id, name, surname, email, phone }) => {
+const ContactItem = ({ contact, setShowModal, setModalData }) => {
   const handleClickVliew = () => {
-    // dispatch(
-    //   showModal({
-    //     type: modalType.contact,
-    //     data: { id, name, surname, email, phone },
-    //   })
-    // );
-    // dispatch(closeModal());
+    setShowModal(true);
+    setModalData(contact);
   };
 
   return (
     <div className={s.item}>
       <div className={s.name}>
-        <span>{name}</span>
+        <span>{contact.name}</span>
         &nbsp;
-        <span>{surname}</span>
+        <span>{contact.surname}</span>
       </div>
       <button className={s.viewButton} type="button" onClick={handleClickVliew}>
         <span className="visually-hidden">Quick view</span>
@@ -41,11 +34,15 @@ const ContactItem = ({ id, name, surname, email, phone }) => {
 };
 
 ContactItem.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  surname: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  contact: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    surname: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+  }).isRequired,
+  setShowModal: PropTypes.func.isRequired,
+  setModalData: PropTypes.func.isRequired,
 };
 
 export default ContactItem;
