@@ -13,18 +13,6 @@
   @media (min-width: $tablet-md-width) {
     width: 480px;
   }
-
-  // @media (min-width: $tablet-lg-width) {
-  //   width: 720px;
-  // }
-
-  @media (min-width: $desktop-sm-width) {
-    width: 70%;
-  }
-
-  @media (min-width: $desktop-lg-width) {
-    max-width: 1500px;
-  }
 }
 
 .contactCard {
