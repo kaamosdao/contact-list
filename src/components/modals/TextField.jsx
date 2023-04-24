@@ -22,7 +22,6 @@ const TextField = ({ title, name, type, placeholder, formik }) => (
         onBlur={formik.handleBlur}
         value={formik.values[name]}
         disabled={formik.isSubmitting}
-        required
       />
     </label>
     <div className={s.invalidTooltip}>
