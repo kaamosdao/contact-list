@@ -25,4 +25,10 @@ export default yup.object().shape({
       message: 'Incorrect phone. Correct format: +X-XXX-XXX-XX-XX',
     })
     .required('Phone is required'),
+  birthday: yup
+    .date()
+    .typeError('Must be a date in format DD.MM.YYYY')
+    .min(new Date(1900, 0, 1), 'Seems like the person is too old')
+    .max(new Date(), "Should not exceed today's date")
+    .required('Birthday is required'),
 });
