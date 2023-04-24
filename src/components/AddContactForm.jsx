@@ -8,19 +8,34 @@ import { addContact } from '../store/slices/contactSlice';
 import schema from '../schemas/validationSchema';
 
 import TextField from './TextField';
+import DatePickerField from './DatePickerField';
+import CreatableSelectField from './CreatableSelectField';
 
 import s from './styles/AddContactForm.module.scss';
+
+const relationOptions = [
+  { value: 'Friend', label: 'Friend' },
+  { value: 'Family', label: 'Family' },
+  { value: 'Acquaintance', label: 'Acquaintance' },
+  { value: 'Co-worker', label: 'Co-worker' },
+];
 
 const AddContactForm = ({ setShowModal }) => {
   const dispatch = useDispatch();
 
   return (
     <Formik
-      initialValues={{ name: '', surname: '', email: '', phone: '' }}
+      initialValues={{
+        name: '',
+        surname: '',
+        email: '',
+        phone: '',
+        birthday: '',
+      }}
       validationSchema={schema}
-      onSubmit={({ name, surname, email, phone }, actions) => {
+      onSubmit={({ name, surname, email, phone, birthday }, actions) => {
         actions.setSubmitting(true);
-        dispatch(addContact({ name, surname, email, phone }));
+        dispatch(addContact({ name, surname, email, phone, birthday }));
         actions.setSubmitting(false);
         setShowModal(false);
       }}
@@ -61,6 +76,24 @@ const AddContactForm = ({ setShowModal }) => {
                 name="phone"
                 type="tel"
                 placeholder="+7-999-666-99-66"
+                isSubmitting={formik.isSubmitting}
+              />
+            </li>
+            <li className={s.item}>
+              <DatePickerField
+                title="Birthday"
+                name="birthday"
+                type="date"
+                placeholder="dd.mm.yyyy"
+                isSubmitting={formik.isSubmitting}
+              />
+            </li>
+            <li className={s.item}>
+              <CreatableSelectField
+                options={relationOptions}
+                title="Relations"
+                name="relations"
+                placeholder="Add your relations"
                 isSubmitting={formik.isSubmitting}
               />
             </li>
