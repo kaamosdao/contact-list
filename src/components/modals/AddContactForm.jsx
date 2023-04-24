@@ -7,8 +7,9 @@ import { addContact } from '../../store/slices/contactSlice';
 
 import schema from '../../schemas/validationSchema';
 
-import s from './styles/AddContactForm.module.scss';
 import TextField from './TextField';
+
+import s from './styles/AddContactForm.module.scss';
 
 const AddContactForm = ({ setShowModal }) => {
   const dispatch = useDispatch();
