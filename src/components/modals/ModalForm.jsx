@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AddContactForm from './AddContactForm';
+import AddContactForm from '../AddContactForm';
 
 import s from './styles/ModalForm.module.scss';
 

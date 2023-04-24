@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
 
-import { addContact } from '../../store/slices/contactSlice';
+import { addContact } from '../store/slices/contactSlice';
 
-import schema from '../../schemas/validationSchema';
+import schema from '../schemas/validationSchema';
 
 import TextField from './TextField';
 
