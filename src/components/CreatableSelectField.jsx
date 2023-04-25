@@ -5,14 +5,14 @@ import CreatableSelect from 'react-select/creatable';
 
 import s from './styles/CreatableSelectField.module.scss';
 
-const customStyles = {
+const getCustomStyles = (isInvalid) => ({
   container: (base) => ({
     ...base,
-    'marginTop': '8px',
-    'minHeight': '44px',
+    marginTop: '8px',
+    minHeight: '44px',
     '@media (min-width: 1500px)': {
-      'minHeight': '68px',
-      'marginTop': '7px',
+      minHeight: '68px',
+      marginTop: '7px',
     },
   }),
   valueContainer: (base) => ({
@@ -24,40 +24,37 @@ const customStyles = {
   }),
   input: (base) => ({
     ...base,
-    'marginTop': 0,
-    'marginBottom': 0,
+    marginTop: 0,
+    marginBottom: 0,
     padding: '0',
   }),
-  control: (base) => ({
+  control: (base, state) => ({
     ...base,
-    'minHeight': '44px',
-    'backgroundColor': '#f9f7f4',
+    minHeight: '44px',
+    backgroundColor: '#f9f7f4',
     border: '1px solid #f4f0e9',
-    'borderRadius': '10px',
-    cursor: 'pointer',
+    borderRadius: '10px',
+    outline: isInvalid ? '1px solid #ff3333' : 'none',
+    cursor: state.isDisabled ? 'default' : 'pointer',
+    opacity: state.isDisabled ? 0.5 : 1,
+    boxShadow: 'none',
     ':hover': {
-      backgroundColor: '#f4f0e9',
+      backgroundColor: state.isDisabled ? '#f9f7f4' : '#f4f0e9',
       border: '1px solid #f4f0e9',
+      opacity: state.isDisabled ? 0.5 : 1,
+      cursor: state.isDisabled ? 'default' : 'pointer',
     },
     ':focus-within': {
-      'borderColor': '#a6a6a6',
-      'boxShadow': 'none',
+      border: isInvalid ? '1px solid #ff3333' : '1px solid #a6a6a6',
+      outline: isInvalid ? '3px solid #ffcccc' : 'none',
     },
     ':focus': {
-      'borderColor': '#a6a6a6',
-      'boxShadow': 'none',
-    },
-    ':disabled': {
-      opacity: 0.5,
-      cursor: 'default',
-    },
-    ':disabled:hover': {
-      'backgroundColor': '#f9f7f4',
-      opacity: 0.5,
-      cursor: 'default',
+      border: isInvalid ? '1px solid #ff3333' : '1px solid #a6a6a6',
+      outline: isInvalid ? '3px solid #ffcccc' : 'none',
+      boxShadow: 'none',
     },
     '@media (min-width: 1500px)': {
-      'minHeight': '68px',
+      minHeight: '68px',
     },
   }),
   placeholder: (base) => ({
@@ -68,7 +65,7 @@ const customStyles = {
     ...base,
     backgroundColor: '#f8e6be',
   }),
-};
+});
 
 const CreatableSelectField = ({
   options,
@@ -79,6 +76,17 @@ const CreatableSelectField = ({
 }) => {
   const [field, meta, helper] = useField(name);
 
+  const getErrorMessage = (error) => {
+    if (typeof error === 'object') {
+      const errorMessage = error.filter((item) => typeof item === 'object')[0]
+        .value;
+      return errorMessage;
+    }
+    return error;
+  };
+
+  const isInvalid = meta.error && meta.touched;
+
   return (
     <>
       <label className={s.label} htmlFor={name}>
@@ -86,20 +94,18 @@ const CreatableSelectField = ({
         <CreatableSelect
           isMulti
           options={options}
-          styles={customStyles}
-          // className={cn('input', {
-          //   invalid: meta.error && meta.touched,
-          // })}
-          dateFormat="dd.MM.yyyy"
+          styles={getCustomStyles(isInvalid)}
           id={name}
           placeholder={placeholder}
-          onChange={(date) => helper.setValue(date)}
-          onBlur={field.onBlur}
+          onChange={(relation) => helper.setValue(relation)}
+          onBlur={() => helper.setTouched(true)}
           selected={field.value}
-          disabled={isSubmitting}
+          isDisabled={isSubmitting}
         />
       </label>
-      <div className={s.invalidTooltip}>{meta.touched && meta.error}</div>
+      <div className={s.invalidTooltip}>
+        {meta.touched && getErrorMessage(meta.error)}
+      </div>
     </>
   );
 };

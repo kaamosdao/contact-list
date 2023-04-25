@@ -31,11 +31,12 @@ const AddContactForm = ({ setShowModal }) => {
         email: '',
         phone: '',
         birthday: '',
+        relations: [],
       }}
       validationSchema={schema}
-      onSubmit={({ name, surname, email, phone, birthday }, actions) => {
+      onSubmit={(values, actions) => {
         actions.setSubmitting(true);
-        dispatch(addContact({ name, surname, email, phone, birthday }));
+        dispatch(addContact(values));
         actions.setSubmitting(false);
         setShowModal(false);
       }}

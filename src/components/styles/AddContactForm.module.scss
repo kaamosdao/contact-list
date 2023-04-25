@@ -29,7 +29,7 @@
 
 .list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: repeat(2, min-content);
   row-gap: 30px;
   margin: 0;

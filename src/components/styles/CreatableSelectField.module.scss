@@ -25,12 +25,3 @@
     @include font(normal, 16px, 16px);
   }
 }
-
-.invalid {
-  outline: 1px solid $red200;
-}
-
-.invalid:focus {
-  outline: 3px solid $red100;
-  border: 1px solid $red200;
-}
