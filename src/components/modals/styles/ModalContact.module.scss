@@ -9,6 +9,8 @@
   border-radius: 20px;
   width: 80%;
   min-width: 320px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
 
   @media (min-width: $tablet-md-width) {
     width: 480px;
