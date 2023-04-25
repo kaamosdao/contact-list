@@ -25,8 +25,12 @@ const contactSlice = createSlice({
         state.items.push(payload);
       },
       prepare: (contact) => {
-        const id = nanoid();
-        return { payload: { id, ...contact } };
+        const relations = contact.relations.map((item) => ({
+          id: nanoid(),
+          ...item,
+        }));
+        const contactWithIds = { id: nanoid(), ...contact, relations };
+        return { payload: contactWithIds };
       },
     },
   },
