@@ -31,4 +31,18 @@ export default yup.object().shape({
     .min(new Date(1900, 0, 1), 'Seems like the person is too old')
     .max(new Date(), "Should not exceed today's date")
     .required('Birthday is required'),
+  relations: yup
+    .array()
+    .of(
+      yup.object({
+        value: yup
+          .string()
+          .trim()
+          .max(20, 'Relation must be less than 20 characters'),
+        label: yup.string(),
+      })
+    )
+    .min(1, 'Relation is required')
+    .max(4, 'Must be less than 4 relations')
+    .required('Relations are required'),
 });
