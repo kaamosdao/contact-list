@@ -17,7 +17,8 @@ const modals = {
   ),
 };
 
-const Modal = ({ setShowModal, type, modalData }) => createPortal(
+const Modal = ({ setShowModal, type, modalData }) =>
+  createPortal(
     <div
       className={cn('modal')}
       onClick={() => setShowModal(false)}
