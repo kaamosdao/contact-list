@@ -1,34 +1,6 @@
 @import '../../../assets/styles/global/variables.scss';
 @import '../../../assets/styles/global/mixin.scss';
 
-.button {
-  width: 114px;
-  min-height: 40px;
-  margin-top: 24px;
-  @include font(normal, 16px, 144%);
-  color: $orange300;
-  background-color: $white;
-  border: 1px solid $orange200;
-  border-radius: 10px;
-
-  @media (min-width: $tablet-lg-width) {
-    width: 118px;
-    margin-top: 28px;
-    @include font(normal, 17px, 142%);
-  }
-}
-
-.button:hover {
-  color: $white;
-  background-color: $orange200;
-  cursor: pointer;
-}
-
-.button:active {
-  background-color: $orange100;
-  border: 1px solid $orange100;
-}
-
 .addSection {
   position: relative;
   min-width: 360px;
