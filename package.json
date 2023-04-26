@@ -53,6 +53,7 @@
     "react": "^18.2.0",
     "react-datepicker": "^4.11.0",
     "react-dom": "^18.2.0",
+    "react-imask": "^6.6.1-alpha.1",
     "react-redux": "^8.0.5",
     "react-select": "^5.7.2",
     "redux": "^4.2.1",
