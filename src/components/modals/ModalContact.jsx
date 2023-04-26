@@ -18,11 +18,11 @@ const ModalContact = ({ contact, setShowModal }) => (
       <span className="visually-hidden">Close</span>+
     </button>
     <div className={s.contactCard}>
-      <div className={s.name}>
+      <h3 className={s.name}>
         <span>{contact.name}</span>
         &nbsp;
         <span>{contact.surname}</span>
-      </div>
+      </h3>
       <ul className={s.relations}>
         {contact.relations.map(({ value, id }) => (
           <li className={s.relationsItem} key={id}>
@@ -30,17 +30,21 @@ const ModalContact = ({ contact, setShowModal }) => (
           </li>
         ))}
       </ul>
-      <div className={s.birthday}>
+      <p className={s.birthday}>
         <span className={s.birthTag}>birthday:</span>&nbsp;{contact.birthday}
-      </div>
+      </p>
       <hr className={s.separator} />
-      <h3 className={s.contactTitle}>Contacts:</h3>
+      <p className={s.contactTitle}>Contacts:</p>
       <ul className={s.contacts}>
-        <li className={s.email}>
-          <span className={s.tag}>email:</span>&nbsp;{contact.email}
+        <li>
+          <p className={s.email}>
+            <span className={s.tag}>email:</span>&nbsp;{contact.email}
+          </p>
         </li>
         <li>
-          <span className={s.tag}>phone:</span>&nbsp;{contact.phone}
+          <p className={s.phone}>
+            <span className={s.tag}>phone:</span>&nbsp;{contact.phone}
+          </p>
         </li>
       </ul>
     </div>

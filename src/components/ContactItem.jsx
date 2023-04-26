@@ -11,11 +11,11 @@ const ContactItem = ({ contact, setShowModal, setModalData }) => {
 
   return (
     <div className={s.item}>
-      <div className={s.name}>
+      <p className={s.name}>
         <span>{contact.name}</span>
         &nbsp;
         <span>{contact.surname}</span>
-      </div>
+      </p>
       <button className={s.viewButton} type="button" onClick={handleClickVliew}>
         <span className="visually-hidden">Quick view</span>
         <svg
