@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-import modalType from '../types/types';
+import modalType, { buttonStyle, buttonType } from '../types/types';
 
 import Modal from './modals/Modal';
+import Button from './Button';
 
 import s from './styles/SectionAddButton.module.scss';
 
@@ -12,13 +13,12 @@ const SectionAddButton = () => {
   return (
     <section className={s.addSection}>
       <h2 className="visually-hidden">Add Button</h2>
-      <button
-        className={s.button}
-        type="button"
+      <Button
         onClick={() => setShowModal(true)}
-      >
-        Add contact
-      </button>
+        style={buttonStyle.add}
+        type={buttonType.button}
+        title="Add contact"
+      />
       {showModal && (
         <Modal
           showModal={showModal}

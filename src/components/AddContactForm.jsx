@@ -6,11 +6,13 @@ import PropTypes from 'prop-types';
 import { addContact } from '../store/slices/contactSlice';
 
 import schema from '../schemas/validationSchema';
+import { buttonStyle, buttonType } from '../types/types';
 
 import TextField from './TextField';
 import DatePickerField from './DatePickerField';
 import CreatableSelectField from './CreatableSelectField';
 import MaskedTextField from './MaskedTextField';
+import Button from './Button';
 
 import s from './styles/AddContactForm.module.scss';
 
@@ -103,13 +105,13 @@ const AddContactForm = ({ setShowModal }) => {
               />
             </li>
           </ul>
-          <button
-            className={s.buttonAdd}
-            type="submit"
+          <Button
+            onClick={formik.handleSubmit}
+            style={buttonStyle.submit}
+            type={buttonType.submit}
+            title="Add contact"
             disabled={formik.isSubmitting}
-          >
-            Add contact
-          </button>
+          />
         </Form>
       )}
     </Formik>
