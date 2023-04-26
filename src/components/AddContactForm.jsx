@@ -10,6 +10,7 @@ import schema from '../schemas/validationSchema';
 import TextField from './TextField';
 import DatePickerField from './DatePickerField';
 import CreatableSelectField from './CreatableSelectField';
+import MaskedTextField from './MaskedTextField';
 
 import s from './styles/AddContactForm.module.scss';
 
@@ -72,7 +73,8 @@ const AddContactForm = ({ setShowModal }) => {
               />
             </li>
             <li className={s.item}>
-              <TextField
+              <MaskedTextField
+                mask="+{7}-000-000-00-00"
                 title="Phone"
                 name="phone"
                 type="tel"

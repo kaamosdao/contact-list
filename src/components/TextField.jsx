@@ -7,7 +7,14 @@ import s from './styles/TextField.module.scss';
 
 const cn = classnames.bind(s);
 
-const TextField = ({ title, name, type, placeholder, isSubmitting }) => {
+const TextField = ({
+  title,
+  name,
+  type,
+  placeholder,
+  isSubmitting,
+  innerRef,
+}) => {
   const [field, meta] = useField({ name, type });
 
   return (
@@ -15,6 +22,7 @@ const TextField = ({ title, name, type, placeholder, isSubmitting }) => {
       <label className={s.label} htmlFor={name}>
         {title}
         <input
+          ref={innerRef}
           className={cn('input', {
             invalid: meta.error && meta.touched,
           })}
@@ -38,10 +46,12 @@ TextField.propTypes = {
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   isSubmitting: PropTypes.bool,
+  innerRef: PropTypes.func,
 };
 
 TextField.defaultProps = {
   isSubmitting: false,
+  innerRef: null,
 };
 
 export default TextField;
