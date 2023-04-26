@@ -4,7 +4,6 @@
 .buttonAdd {
   width: 114px;
   min-height: 40px;
-  margin-top: 24px;
   @include font(normal, 16px, 144%);
   color: $orange300;
   background-color: $white;
@@ -13,7 +12,6 @@
 
   @media (min-width: $tablet-lg-width) {
     width: 118px;
-    margin-top: 28px;
     @include font(normal, 17px, 142%);
   }
 }
@@ -32,7 +30,6 @@
 .buttonSubmit {
   width: 134px;
   min-height: 45px;
-  margin-top: 35px;
   padding: 12px;
   @include font(normal, 16px, 130%);
   color: $white;
@@ -43,7 +40,6 @@
   @media (min-width: $desktop-md-width) {
     width: 235px;
     min-height: 58px;
-    margin-top: 50px;
     padding: 15px;
     @include font(normal, 20px, 130%);
   }

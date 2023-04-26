@@ -32,11 +32,11 @@
   grid-template-columns: 100%;
   grid-template-rows: repeat(2, min-content);
   row-gap: 30px;
-  margin: 0;
+  margin: 0 0 35px;
   padding: 0;
   list-style-type: none;
 
-  @media (min-width: 1300px) {
+  @media (min-width: $desktop-sm-width) {
     grid-template-columns: repeat(2, 48.7%);
     column-gap: 20px;
   }
@@ -44,6 +44,7 @@
   @media (min-width: $desktop-md-width) {
     grid-template-columns: repeat(2, 48.7%);
     row-gap: 34px;
+    margin-bottom: 50px;
   }
 
   @media (min-width: $desktop-lg-width) {

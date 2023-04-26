@@ -9,13 +9,11 @@
   padding: 10px;
   width: auto;
   max-width: 420px;
-  @include font(normal, 16px, 36px);
   border: 1px solid $green400;
   border-radius: 10px;
 
   @media (min-width: $tablet-lg-width) {
     max-width: 500px;
-    @include font(normal, 20px, 36px);
   }
 }
 
@@ -23,6 +21,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin: 0;
+  @include p-normal();
 }
 
 .viewButton {

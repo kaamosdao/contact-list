@@ -4,30 +4,29 @@
 .modalContact {
   position: relative;
   background-color: #fefefe;
-  padding: 20px;
   border: 1px solid #888;
   border-radius: 20px;
-  width: 80%;
+  width: 70%;
   min-width: 320px;
   max-height: calc(100vh - 40px);
   overflow-y: auto;
 
   @media (min-width: $tablet-md-width) {
-    width: 480px;
+    max-width: 480px;
   }
 }
 
 .contactCard {
   display: flex;
   flex-direction: column;
-  margin: 10px auto;
+  margin: 15px auto;
   padding: 10px;
   width: auto;
   max-width: 420px;
   @include font(normal, 25px, 36px);
 
   @media (min-width: $tablet-lg-width) {
-    margin: 20px auto;
+    margin: 25px auto;
     max-width: 500px;
     @include font(normal, 30px, 36px);
   }
@@ -37,14 +36,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0;
   width: 100%;
+  @include h3();
 }
 
 .contactTitle {
   margin: 0;
   text-align: center;
-  @include font(normal, 22px, 25px);
-  color: $orange300;
+  @include p-md($orange300);
 
   @media (min-width: $tablet-lg-width) {
     @include font(normal, 25px, 36px);
@@ -56,11 +56,7 @@
   justify-content: center;
   margin: 10px 0 0 0;
   padding: 0;
-  @include font(normal, 18px, 36px);
-
-  @media (min-width: $tablet-lg-width) {
-    @include font(normal, 20px, 36px);
-  }
+  @include p-normal();
 }
 
 .contacts {
@@ -69,20 +65,21 @@
   align-items: center;
   margin: 10px 0 0 0;
   padding: 0;
-  @include font(normal, 18px, 36px);
   list-style-type: none;
 
   @media (min-width: $tablet-lg-width) {
     max-width: 500px;
-    @include font(normal, 20px, 36px);
   }
 }
 
-.email {
+.email,
+.phone {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin: 0;
+  @include p-normal();
 }
 
 .tag {
