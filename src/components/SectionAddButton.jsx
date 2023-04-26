@@ -9,14 +9,14 @@ import s from './styles/SectionAddButton.module.scss';
 const SectionAddButton = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const handleClick = () => {
-    setShowModal(true);
-  };
-
   return (
     <section className={s.addSection}>
       <h2 className="visually-hidden">Add Button</h2>
-      <button className={s.button} type="button" onClick={handleClick}>
+      <button
+        className={s.button}
+        type="button"
+        onClick={() => setShowModal(true)}
+      >
         Add contact
       </button>
       {showModal && (

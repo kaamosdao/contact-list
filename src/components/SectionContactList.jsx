@@ -24,7 +24,6 @@ const SectionContactList = () => {
             key={contact.id}
             contact={contact}
             setShowModal={setShowModal}
-            showModal={showModal}
             setModalData={setModalData}
           />
         ))}
