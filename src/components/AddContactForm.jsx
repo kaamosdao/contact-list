@@ -81,6 +81,7 @@ const AddContactForm = ({ setShowModal }) => {
                 type="tel"
                 placeholder="+7-999-666-99-66"
                 isSubmitting={formik.isSubmitting}
+                onAccept={(value) => formik.setFieldValue('phone', value)}
               />
             </li>
             <li className={s.item}>
