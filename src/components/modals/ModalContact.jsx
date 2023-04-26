@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import s from './styles/ModalContact.module.scss';
 
 const ModalContact = ({ contact, setShowModal }) => {
-  const birthDay = new Date(contact.birthday).toLocaleDateString('ru');
   const handleClick = (e) => {
     e.stopPropagation();
   };
@@ -33,7 +32,7 @@ const ModalContact = ({ contact, setShowModal }) => {
           ))}
         </ul>
         <div className={s.birthday}>
-          <span className={s.birthTag}>birthday:</span>&nbsp;{birthDay}
+          <span className={s.birthTag}>birthday:</span>&nbsp;{contact.birthday}
         </div>
         <hr className={s.separator} />
         <h3 className={s.contactTitle}>Contacts:</h3>

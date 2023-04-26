@@ -37,7 +37,8 @@ const AddContactForm = ({ setShowModal }) => {
       validationSchema={schema}
       onSubmit={(values, actions) => {
         actions.setSubmitting(true);
-        dispatch(addContact(values));
+        const birthday = new Date(values.birthday).toLocaleDateString('ru');
+        dispatch(addContact({ ...values, birthday }));
         actions.setSubmitting(false);
         setShowModal(false);
       }}
