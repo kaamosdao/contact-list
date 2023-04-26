@@ -1,4 +1,5 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
@@ -16,17 +17,16 @@ const modals = {
   ),
 };
 
-const Modal = ({ setShowModal, type, modalData }) => {
-  const handleClick = () => {
-    setShowModal(false);
-  };
-
-  return (
-    <div className={cn('modal')} onClick={handleClick} aria-hidden="true">
+const Modal = ({ setShowModal, type, modalData }) => createPortal(
+    <div
+      className={cn('modal')}
+      onClick={() => setShowModal(false)}
+      aria-hidden="true"
+    >
       {modals[type](setShowModal, modalData)}
-    </div>
+    </div>,
+    document.body
   );
-};
 
 Modal.propTypes = {
   setShowModal: PropTypes.func.isRequired,
