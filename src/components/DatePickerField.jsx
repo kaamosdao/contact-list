@@ -15,19 +15,19 @@ const DatePickerField = ({ title, name, type, placeholder, isSubmitting }) => {
     <>
       <label className={s.label} htmlFor={name}>
         {title}
-        <DatePicker
-          className={cn('input', {
-            invalid: meta.error && meta.touched,
-          })}
-          dateFormat="dd.MM.yyyy"
-          id={name}
-          placeholderText={placeholder}
-          onChange={(date) => helper.setValue(date)}
-          onBlur={field.onBlur}
-          selected={field.value}
-          disabled={isSubmitting}
-        />
       </label>
+      <DatePicker
+        className={cn('input', {
+          invalid: meta.error && meta.touched,
+        })}
+        dateFormat="dd.MM.yyyy"
+        id={name}
+        placeholderText={placeholder}
+        onChange={(date) => helper.setValue(date)}
+        onBlur={field.onBlur}
+        selected={field.value}
+        disabled={isSubmitting}
+      />
       <div className={s.invalidTooltip}>{meta.touched && meta.error}</div>
     </>
   );
