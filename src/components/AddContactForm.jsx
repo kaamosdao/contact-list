@@ -37,15 +37,15 @@ const AddContactForm = ({ setShowModal }) => {
         relations: [],
       }}
       validationSchema={schema}
-      onSubmit={(values, actions) => {
-        actions.setSubmitting(true);
-        const birthday = new Date(values.birthday).toLocaleDateString('ru');
-        dispatch(addContact({ ...values, birthday }));
-        actions.setSubmitting(false);
+      onSubmit={({ birthday, ...rest }, { setSubmitting }) => {
+        setSubmitting(true);
+        const formattedBirthday = new Date(birthday).toLocaleDateString('ru');
+        dispatch(addContact({ ...rest, birthday: formattedBirthday }));
+        setSubmitting(false);
         setShowModal(false);
       }}
     >
-      {(formik) => (
+      {({ isSubmitting, setFieldValue, handleSubmit }) => (
         <Form className={s.form}>
           <ul className={s.list}>
             <li className={s.item}>
@@ -54,7 +54,7 @@ const AddContactForm = ({ setShowModal }) => {
                 name="name"
                 type="text"
                 placeholder="First name"
-                isSubmitting={formik.isSubmitting}
+                isSubmitting={isSubmitting}
               />
             </li>
             <li className={s.item}>
@@ -63,7 +63,7 @@ const AddContactForm = ({ setShowModal }) => {
                 name="surname"
                 type="text"
                 placeholder="Last name"
-                isSubmitting={formik.isSubmitting}
+                isSubmitting={isSubmitting}
               />
             </li>
             <li className={s.item}>
@@ -72,7 +72,7 @@ const AddContactForm = ({ setShowModal }) => {
                 name="email"
                 type="email"
                 placeholder="example@mail.com"
-                isSubmitting={formik.isSubmitting}
+                isSubmitting={isSubmitting}
               />
             </li>
             <li className={s.item}>
@@ -82,8 +82,8 @@ const AddContactForm = ({ setShowModal }) => {
                 name="phone"
                 type="tel"
                 placeholder="+7-999-666-99-66"
-                isSubmitting={formik.isSubmitting}
-                onAccept={(value) => formik.setFieldValue('phone', value)}
+                isSubmitting={isSubmitting}
+                onAccept={(value) => setFieldValue('phone', value)}
               />
             </li>
             <li className={s.item}>
@@ -92,7 +92,7 @@ const AddContactForm = ({ setShowModal }) => {
                 name="birthday"
                 type="date"
                 placeholder="dd.mm.yyyy"
-                isSubmitting={formik.isSubmitting}
+                isSubmitting={isSubmitting}
               />
             </li>
             <li className={s.item}>
@@ -101,16 +101,16 @@ const AddContactForm = ({ setShowModal }) => {
                 title="Relations"
                 name="relations"
                 placeholder="Add your relations"
-                isSubmitting={formik.isSubmitting}
+                isSubmitting={isSubmitting}
               />
             </li>
           </ul>
           <Button
-            onClick={formik.handleSubmit}
+            onClick={handleSubmit}
             style={buttonStyle.submit}
             type={buttonType.submit}
             title="Add contact"
-            disabled={formik.isSubmitting}
+            disabled={isSubmitting}
           />
         </Form>
       )}
