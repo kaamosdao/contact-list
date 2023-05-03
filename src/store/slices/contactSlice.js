@@ -24,13 +24,7 @@ const contactSlice = createSlice({
       reducer: (state, { payload }) => {
         state.items.push(payload);
       },
-      prepare: (contact) => {
-        const relations = contact.relations.map((item) => ({
-          id: nanoid(),
-          ...item,
-        }));
-        return { payload: { id: nanoid(), ...contact, relations } };
-      },
+      prepare: (contact) => ({ payload: { id: nanoid(), ...contact } }),
     },
   },
 });
