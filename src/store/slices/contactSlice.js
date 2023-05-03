@@ -29,8 +29,7 @@ const contactSlice = createSlice({
           id: nanoid(),
           ...item,
         }));
-        const contactWithIds = { id: nanoid(), ...contact, relations };
-        return { payload: contactWithIds };
+        return { payload: { id: nanoid(), ...contact, relations } };
       },
     },
   },
