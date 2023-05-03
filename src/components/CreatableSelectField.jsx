@@ -77,8 +77,8 @@ const CreatableSelectField = ({
   const [field, meta, helper] = useField(name);
 
   const getErrorMessage = (error) => {
-    if (typeof error === 'object') {
-      const errorMessage = error.filter((item) => typeof item === 'object')[0]
+    if (Array.isArray(error)) {
+      const errorMessage = error.filter((item) => item)[0]
         .value;
       return errorMessage;
     }
