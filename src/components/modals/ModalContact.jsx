@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -24,8 +25,8 @@ const ModalContact = ({ contact, setShowModal }) => (
         <span>{contact.surname}</span>
       </h3>
       <ul className={s.relations}>
-        {contact.relations.map(({ value, id }) => (
-          <li className={s.relationsItem} key={id}>
+        {contact.relations.map(({ value }, i) => (
+          <li className={s.relationsItem} key={i}>
             {value}
           </li>
         ))}
