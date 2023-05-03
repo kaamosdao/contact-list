@@ -78,8 +78,7 @@ const CreatableSelectField = ({
 
   const getErrorMessage = (error) => {
     if (Array.isArray(error)) {
-      const errorMessage = error.filter((item) => item)[0]
-        .value;
+      const errorMessage = error.filter((item) => item)[0].value;
       return errorMessage;
     }
     return error;
