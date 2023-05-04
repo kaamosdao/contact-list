@@ -64,3 +64,43 @@
   opacity: 0.5;
   cursor: default;
 }
+
+.buttonDelete {
+  width: 134px;
+  min-height: 47px;
+  margin-left: 10px;
+  padding: 12px;
+  @include font(normal, 16px, 130%);
+  color: $green400;
+  background-color: $green100;
+  border: none;
+  border-radius: 10px;
+
+  @media (min-width: $desktop-md-width) {
+    min-width: 235px;
+    min-height: 58px;
+    margin-left: 30px;
+    padding: 15px;
+    @include font(normal, 20px, 130%);
+  }
+}
+
+.buttonDelete:hover {
+  background-color: $grey100;
+  cursor: pointer;
+}
+
+.buttonDelete:active {
+  background-color: $grey200;
+}
+
+.buttonDelete:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.buttonDelete:disabled:hover {
+  background-color: $green100;
+  opacity: 0.5;
+  cursor: default;
+}
