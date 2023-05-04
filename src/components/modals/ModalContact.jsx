@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import s from './styles/ModalContact.module.scss';
 
-const ModalContact = ({ contact, setShowModal }) => (
+const ModalContact = ({ contact, setModal }) => (
   <div
     className={s.modalContact}
     onClick={(e) => e.stopPropagation()}
@@ -14,7 +14,13 @@ const ModalContact = ({ contact, setShowModal }) => (
     <button
       className={s.buttonClose}
       type="button"
-      onClick={() => setShowModal(false)}
+      onClick={() =>
+        setModal({
+          show: false,
+          type: null,
+          data: null,
+        })
+      }
     >
       <span className="visually-hidden">Close</span>+
     </button>
@@ -62,13 +68,12 @@ ModalContact.propTypes = {
     birthday: PropTypes.string.isRequired,
     relations: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.string,
         value: PropTypes.string,
         label: PropTypes.string,
       })
     ).isRequired,
   }).isRequired,
-  setShowModal: PropTypes.func.isRequired,
+  setModal: PropTypes.func.isRequired,
 };
 
 export default ModalContact;
