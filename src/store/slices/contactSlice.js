@@ -26,9 +26,21 @@ const contactSlice = createSlice({
       },
       prepare: (contact) => ({ payload: { id: nanoid(), ...contact } }),
     },
+    updateContact: (state, { payload }) => {
+      state.items = state.items.map((item) => {
+        if (item.id === payload.id) {
+          return payload;
+        }
+        return item;
+      });
+    },
+    deleteContact: (state, { payload }) => {
+      state.items = state.items.filter((item) => item.id !== payload.id);
+    },
   },
 });
 
-export const { addContact } = contactSlice.actions;
+export const { addContact, updateContact, deleteContact } =
+  contactSlice.actions;
 
 export default contactSlice.reducer;
