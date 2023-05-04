@@ -99,6 +99,7 @@ const CreatableSelectField = ({
           onChange={(relation) => helper.setValue(relation)}
           onBlur={() => helper.setTouched(true)}
           selected={field.value}
+          defaultValue={field.value}
           isDisabled={isSubmitting}
         />
       </label>
