@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import AddContactForm from '../AddContactForm';
+import EditContactForm from '../EditContactForm';
 
 import s from './styles/ModalForm.module.scss';
 
-const ModalForm = ({ setShowModal }) => (
+const ModalForm = ({ setModal, contact }) => (
   <div
     className={s.modalForm}
     onClick={(e) => e.stopPropagation()}
@@ -14,16 +15,44 @@ const ModalForm = ({ setShowModal }) => (
     <button
       className={s.buttonClose}
       type="button"
-      onClick={() => setShowModal(false)}
+      onClick={() =>
+        setModal({
+          show: false,
+          type: null,
+          data: null,
+        })
+      }
     >
       <span className="visually-hidden">Close</span>+
     </button>
-    <AddContactForm setShowModal={setShowModal} />
+    {contact ? (
+      <EditContactForm setModal={setModal} contact={contact} />
+    ) : (
+      <AddContactForm setModal={setModal} />
+    )}
   </div>
 );
 
 ModalForm.propTypes = {
-  setShowModal: PropTypes.func.isRequired,
+  setModal: PropTypes.func.isRequired,
+  contact: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    surname: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    birthday: PropTypes.string.isRequired,
+    relations: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.string,
+        label: PropTypes.string,
+      })
+    ).isRequired,
+  }),
+};
+
+ModalForm.defaultProps = {
+  contact: null,
 };
 
 export default ModalForm;

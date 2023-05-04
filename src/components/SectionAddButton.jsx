@@ -8,23 +8,29 @@ import Button from './Button';
 import s from './styles/SectionAddButton.module.scss';
 
 const SectionAddButton = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [modal, setModal] = useState({
+    show: false,
+    type: null,
+    data: null,
+  });
 
   return (
     <section className={s.addSection}>
       <h2 className="visually-hidden">Add Button</h2>
       <Button
-        onClick={() => setShowModal(true)}
+        onClick={() =>
+          setModal({
+            show: true,
+            type: modalType.form,
+            data: null,
+          })
+        }
         style={buttonStyle.add}
         type={buttonType.button}
         title="Add contact"
       />
-      {showModal && (
-        <Modal
-          showModal={showModal}
-          setShowModal={setShowModal}
-          type={modalType.form}
-        />
+      {modal.show && (
+        <Modal setModal={setModal} type={modal.type} modalData={modal.data} />
       )}
     </section>
   );

@@ -11,26 +11,34 @@ import s from './styles/Modal.module.scss';
 const cn = classNames.bind(s);
 
 const modals = {
-  form: (setShowModal) => <ModalForm setShowModal={setShowModal} />,
-  contact: (setShowModal, modalData) => (
-    <ModalContact setShowModal={setShowModal} contact={modalData} />
+  form: (setModal, modalData = null) => (
+    <ModalForm setModal={setModal} contact={modalData} />
+  ),
+  contact: (setModal, modalData) => (
+    <ModalContact setModal={setModal} contact={modalData} />
   ),
 };
 
-const Modal = ({ setShowModal, type, modalData }) =>
+const Modal = ({ setModal, type, modalData }) =>
   createPortal(
     <div
       className={cn('modal')}
-      onClick={() => setShowModal(false)}
+      onClick={() =>
+        setModal({
+          show: false,
+          type: null,
+          data: null,
+        })
+      }
       aria-hidden="true"
     >
-      {modals[type](setShowModal, modalData)}
+      {modals[type](setModal, modalData)}
     </div>,
     document.body
   );
 
 Modal.propTypes = {
-  setShowModal: PropTypes.func.isRequired,
+  setModal: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
   modalData: PropTypes.shape({
     id: PropTypes.string.isRequired,
