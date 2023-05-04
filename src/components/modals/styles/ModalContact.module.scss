@@ -1,0 +1,136 @@
+@import '../../../../assets/styles/global/variables.scss';
+@import '../../../../assets/styles/global/mixin.scss';
+
+.modalContact {
+  position: relative;
+  background-color: #fefefe;
+  border: 1px solid #888;
+  border-radius: 20px;
+  width: 70%;
+  min-width: 320px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+
+  @media (min-width: $tablet-md-width) {
+    max-width: 480px;
+  }
+}
+
+.contactCard {
+  display: flex;
+  flex-direction: column;
+  margin: 15px auto;
+  padding: 10px;
+  width: auto;
+  max-width: 420px;
+  @include font(normal, 25px, 36px);
+
+  @media (min-width: $tablet-lg-width) {
+    margin: 25px auto;
+    max-width: 500px;
+    @include font(normal, 30px, 36px);
+  }
+}
+
+.name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  @include h3();
+}
+
+.contactTitle {
+  margin: 0;
+  text-align: center;
+  @include p-md($orange300);
+
+  @media (min-width: $tablet-lg-width) {
+    @include font(normal, 25px, 36px);
+  }
+}
+
+.birthday {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 0 0;
+  padding: 0;
+  @include p-normal();
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0 0 0;
+  padding: 0;
+  list-style-type: none;
+
+  @media (min-width: $tablet-lg-width) {
+    max-width: 500px;
+  }
+}
+
+.email,
+.phone {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  @include p-normal();
+}
+
+.tag {
+  color: $orange200;
+}
+
+.birthTag {
+  color: $orange200;
+}
+
+.buttonClose {
+  position: absolute;
+  top: 3%;
+  right: 4%;
+  font-size: 30px;
+  color: $black;
+  border: none;
+  background-color: transparent;
+  transform: rotate(45deg);
+  cursor: pointer;
+
+  @media (min-width: $desktop-sm-width) {
+    top: 3%;
+    right: 2%;
+  }
+}
+
+.buttonClose:hover {
+  color: $orange300;
+}
+
+.buttonClose:active {
+  color: $orange100;
+}
+
+.relations {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px auto 0;
+  padding: 0;
+  width: 80%;
+  @include font(normal, 14px, 16px);
+  color: $green200;
+  list-style-type: none;
+}
+
+.relationsItem {
+  margin: 5px;
+}
+
+.separator {
+  width: 77%;
+}
