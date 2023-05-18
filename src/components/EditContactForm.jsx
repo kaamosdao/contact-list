@@ -13,7 +13,7 @@ import Button from './Button';
 
 import s from './styles/EditContactForm.module.scss';
 
-const EditContactForm = ({ closeModal, contact }) => {
+const EditContactForm = ({ closeForm, contact }) => {
   const dispatch = useDispatch();
 
   return (
@@ -38,7 +38,7 @@ const EditContactForm = ({ closeModal, contact }) => {
           })
         );
         setSubmitting(false);
-        closeModal();
+        closeForm();
       }}
     >
       {({ isSubmitting, setSubmitting, setFieldValue, handleSubmit }) => (
@@ -60,7 +60,7 @@ const EditContactForm = ({ closeModal, contact }) => {
                 setSubmitting(true);
                 dispatch(deleteContact({ id: contact.id }));
                 setSubmitting(false);
-                closeModal();
+                closeForm();
               }}
               style={buttonStyle.delete}
               type={buttonType.button}
@@ -75,7 +75,7 @@ const EditContactForm = ({ closeModal, contact }) => {
 };
 
 EditContactForm.propTypes = {
-  closeModal: PropTypes.func.isRequired,
+  closeForm: PropTypes.func.isRequired,
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

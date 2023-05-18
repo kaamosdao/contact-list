@@ -13,7 +13,7 @@ import Button from './Button';
 
 import s from './styles/AddContactForm.module.scss';
 
-const AddContactForm = ({ closeModal }) => {
+const AddContactForm = ({ closeForm }) => {
   const dispatch = useDispatch();
 
   return (
@@ -32,7 +32,7 @@ const AddContactForm = ({ closeModal }) => {
         const formattedBirthday = new Date(birthday).toLocaleDateString('ru');
         dispatch(addContact({ ...rest, birthday: formattedBirthday }));
         setSubmitting(false);
-        closeModal();
+        closeForm();
       }}
     >
       {({ isSubmitting, setFieldValue, handleSubmit }) => (
@@ -55,7 +55,7 @@ const AddContactForm = ({ closeModal }) => {
 };
 
 AddContactForm.propTypes = {
-  closeModal: PropTypes.func.isRequired,
+  closeForm: PropTypes.func.isRequired,
 };
 
 export default AddContactForm;

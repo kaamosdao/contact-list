@@ -16,9 +16,9 @@ const ModalForm = ({ onClose, contact }) => (
       <span className="visually-hidden">Close</span>+
     </button>
     {contact ? (
-      <EditContactForm closeModal={onClose} contact={contact} />
+      <EditContactForm closeForm={onClose} contact={contact} />
     ) : (
-      <AddContactForm closeModal={onClose} />
+      <AddContactForm closeForm={onClose} />
     )}
   </div>
 );
