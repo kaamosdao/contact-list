@@ -13,7 +13,6 @@ const SectionContactList = () => {
   const contacts = useSelector(selectContacts);
 
   const [modal, setModal] = useState({
-    show: false,
     type: null,
     data: null,
   });
@@ -25,11 +24,10 @@ const SectionContactList = () => {
           <ContactItem key={contact.id} contact={contact} setModal={setModal} />
         ))}
       </ul>
-      {modal.show && (
+      {modal.type && (
         <Modal
           onClose={() =>
             setModal({
-              show: false,
               type: null,
               data: null,
             })

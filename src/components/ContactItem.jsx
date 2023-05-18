@@ -17,7 +17,6 @@ const ContactItem = ({ contact, setModal }) => (
       type="button"
       onClick={() =>
         setModal({
-          show: true,
           type: modalType.form,
           data: contact,
         })
@@ -40,7 +39,6 @@ const ContactItem = ({ contact, setModal }) => (
       type="button"
       onClick={() => {
         setModal({
-          show: true,
           type: modalType.contact,
           data: contact,
         });

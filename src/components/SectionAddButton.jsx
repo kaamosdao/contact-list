@@ -9,7 +9,6 @@ import s from './styles/SectionAddButton.module.scss';
 
 const SectionAddButton = () => {
   const [modal, setModal] = useState({
-    show: false,
     type: null,
     data: null,
   });
@@ -20,7 +19,6 @@ const SectionAddButton = () => {
       <Button
         onClick={() =>
           setModal({
-            show: true,
             type: modalType.form,
             data: null,
           })
@@ -29,11 +27,10 @@ const SectionAddButton = () => {
         type={buttonType.button}
         title="Add contact"
       />
-      {modal.show && (
+      {modal.type && (
         <Modal
           onClose={() =>
             setModal({
-              show: false,
               type: null,
               data: null,
             })
