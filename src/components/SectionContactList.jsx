@@ -26,7 +26,17 @@ const SectionContactList = () => {
         ))}
       </ul>
       {modal.show && (
-        <Modal setModal={setModal} type={modal.type} modalData={modal.data} />
+        <Modal
+          onClose={() =>
+            setModal({
+              show: false,
+              type: null,
+              data: null,
+            })
+          }
+          type={modal.type}
+          modalData={modal.data}
+        />
       )}
     </section>
   );

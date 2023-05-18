@@ -6,35 +6,25 @@ import EditContactForm from '../EditContactForm';
 
 import s from './styles/ModalForm.module.scss';
 
-const ModalForm = ({ setModal, contact }) => (
+const ModalForm = ({ onClose, contact }) => (
   <div
     className={s.modalForm}
     onClick={(e) => e.stopPropagation()}
     aria-hidden="true"
   >
-    <button
-      className={s.buttonClose}
-      type="button"
-      onClick={() =>
-        setModal({
-          show: false,
-          type: null,
-          data: null,
-        })
-      }
-    >
+    <button className={s.buttonClose} type="button" onClick={onClose}>
       <span className="visually-hidden">Close</span>+
     </button>
     {contact ? (
-      <EditContactForm setModal={setModal} contact={contact} />
+      <EditContactForm closeModal={onClose} contact={contact} />
     ) : (
-      <AddContactForm setModal={setModal} />
+      <AddContactForm closeModal={onClose} />
     )}
   </div>
 );
 
 ModalForm.propTypes = {
-  setModal: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
