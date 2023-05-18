@@ -6,6 +6,7 @@ const modalType = {
 export const buttonStyle = {
   submit: 'buttonSubmit',
   add: 'buttonAdd',
+  delete: 'buttonDelete',
 };
 
 export const buttonType = {
