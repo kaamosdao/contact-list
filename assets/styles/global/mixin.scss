@@ -27,7 +27,7 @@
   color: $color;
 
   @media (min-width: $tablet-lg-width) {
-    @include font(normal, 33px, 36px);
+    @include font(bold, 33px, 36px);
   }
 }
 
