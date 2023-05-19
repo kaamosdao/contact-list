@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
 
@@ -13,6 +13,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, 'dist/public'),
+    publicPath: '/',
     clean: true,
   },
   optimization: {
@@ -20,6 +21,7 @@ module.exports = {
   },
   devServer: {
     port: 4242,
+    historyApiFallback: true,
   },
   devtool: mode === 'development' ? 'source-map' : false,
   plugins: [
@@ -27,14 +29,14 @@ module.exports = {
       template: 'index.html',
     }),
     new MiniCssExtractPlugin(),
-    // new CopyPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.resolve(__dirname, 'assets/img'),
-    //       to: path.resolve(__dirname, 'dist/public/assets/img'),
-    //     },
-    //   ],
-    // }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'assets/img'),
+          to: path.resolve(__dirname, 'dist/public/assets/img'),
+        },
+      ],
+    }),
   ],
   module: {
     rules: [
@@ -75,13 +77,13 @@ module.exports = {
           filename: 'assets/fonts/[name][ext]',
         },
       },
-      // {
-      //   test: /\.(png|jpg|gif|svg)$/,
-      //   type: 'asset/resource',
-      //   generator: {
-      //     filename: 'assets/img/[name][ext]',
-      //   },
-      // },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/img/[name][ext]',
+        },
+      },
     ],
   },
 };
