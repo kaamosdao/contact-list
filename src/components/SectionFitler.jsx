@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 
 import { setFilter } from '../store/slices/contactSlice';
 import { hasContacts, selectFilter } from '../store/selectors/contactSelectors';
@@ -11,6 +13,14 @@ const SectionFilter = () => {
 
   const showInput = useSelector(hasContacts);
   const filter = useSelector(selectFilter);
+
+  const [_, setSearchParams] = useSearchParams();
+
+  const handleChange = (e) => {
+    const value = e.target.value.toLowerCase().trim();
+    setSearchParams({ search: value });
+    dispatch(setFilter(value));
+  };
 
   return (
     <section className={s.filterSection}>
@@ -24,9 +34,7 @@ const SectionFilter = () => {
             name="filter"
             id="filter"
             value={filter}
-            onChange={(e) =>
-              dispatch(setFilter(e.target.value.toLowerCase().trim()))
-            }
+            onChange={handleChange}
           />
         </label>
       )}
