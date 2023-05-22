@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import selectContacts from '../store/selectors/contactSelectors';
+import selectContacts, {
+  selectFilter,
+} from '../store/selectors/contactSelectors';
 
 import ContactItem from './ContactItem';
 
@@ -10,7 +12,12 @@ import Modal from './modals/Modal';
 import s from './styles/SectionContactList.module.scss';
 
 const SectionContactList = () => {
-  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
+  const contacts = useSelector(selectContacts).filter(
+    ({ name, surname }) =>
+      name.toLowerCase().includes(filter) ||
+      surname.toLowerCase().includes(filter)
+  );
 
   const [modal, setModal] = useState({
     type: null,
