@@ -11,16 +11,21 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Main />,
-    errorElement: <Notfound />,
   },
   {
-    path: 'contacts/:contactIndex',
+    path: 'contacts/:contactId',
     loader: ({ params }) => {
-      const contact = store.getState().contacts.items[params.contactIndex - 1];
+      const contact = store
+        .getState()
+        .contacts.items.find(({ id }) => params.contactId === id);
       return contact;
     },
     element: <ContactPage />,
     errorElement: <Notfound />,
+  },
+  {
+    path: '*',
+    element: <Notfound />,
   },
 ]);
 
