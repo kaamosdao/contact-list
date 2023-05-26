@@ -1,0 +1,20 @@
+@import '../../../assets/styles/global/variables.scss';
+@import '../../../assets/styles/global/mixin.scss';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-left: 20px;
+  min-width: 320px;
+}
+
+.title {
+  margin-left: 20px;
+  @include h2();
+}
+
+.travolta {
+  margin: 0 20px;
+}

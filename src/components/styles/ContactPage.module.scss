@@ -1,0 +1,136 @@
+@import '../../../assets/styles/global/variables.scss';
+@import '../../../assets/styles/global/mixin.scss';
+
+.contactCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  width: 100vw;
+  min-width: 320px;
+  height: 100vh;
+  max-width: 420px;
+  @include font(normal, 25px, 36px);
+
+  @media (min-width: $tablet-lg-width) {
+    margin: 25px auto;
+    max-width: 500px;
+    @include font(normal, 30px, 36px);
+  }
+}
+
+.name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  @include h3();
+  text-decoration: underline;
+}
+
+.contactTitle {
+  margin: 20px 0 0;
+  text-align: center;
+  @include p-md($orange300);
+
+  @media (min-width: $tablet-lg-width) {
+    @include font(normal, 25px, 36px);
+  }
+}
+
+.birthday {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  @include p-normal();
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0 0 0;
+  padding: 0;
+  list-style-type: none;
+
+  @media (min-width: $tablet-lg-width) {
+    max-width: 500px;
+  }
+}
+
+.emailItem,
+.phoneItem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.email,
+.phone {
+  margin: 0;
+  @include p-normal();
+  text-decoration: none;
+}
+
+.email:hover,
+.phone:hover {
+  color: $orange200;
+}
+
+.email:active,
+.phone:active {
+  opacity: 0.6;
+}
+
+.relations {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px auto 0;
+  padding: 0;
+  width: 80%;
+  @include font(normal, 14px, 16px);
+  color: $green200;
+  list-style-type: none;
+}
+
+.relationsItem {
+  margin: 5px;
+}
+
+.phoneSvg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.emailSvg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.link {
+  margin-top: 50px;
+  color: $grey400;
+  @include font(normal, 16px, 144%);
+
+  @media (min-width: $tablet-lg-width) {
+    @include font(normal, 17px, 142%);
+  }
+}
+
+.link:hover {
+  color: $orange300;
+  cursor: pointer;
+}
+
+.link:active {
+  opacity: 0.6;
+}

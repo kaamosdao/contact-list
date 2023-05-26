@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 
-import selectContacts, {
-  selectFilter,
-} from '../store/selectors/contactSelectors';
+import selectContacts from '../store/selectors/contactSelectors';
 
 import ContactItem from './ContactItem';
 
@@ -12,7 +11,9 @@ import Modal from './modals/Modal';
 import s from './styles/SectionContactList.module.scss';
 
 const SectionContactList = () => {
-  const filter = useSelector(selectFilter);
+  const [searchParams] = useSearchParams();
+  const filter = searchParams.get('search') || '';
+
   const contacts = useSelector(selectContacts).filter(
     ({ name, surname }) =>
       name.toLowerCase().includes(filter) ||

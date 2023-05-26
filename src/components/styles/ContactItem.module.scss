@@ -10,10 +10,28 @@
   max-width: 420px;
   border: 1px solid $green400;
   border-radius: 10px;
+  background: none;
+  cursor: pointer;
 
   @media (min-width: $tablet-lg-width) {
     max-width: 500px;
   }
+}
+
+.item:hover {
+  border-color: $orange300;
+}
+
+.item:hover .name {
+  color: $orange300;
+}
+
+.item:active {
+  border-color: $orange100;
+}
+
+.item:active .name {
+  color: $orange100;
 }
 
 .name {
