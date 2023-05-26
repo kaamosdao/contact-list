@@ -15,4 +15,12 @@ export const buttonType = {
   reset: 'reset',
 };
 
+export const toastType = {
+  info: 'info',
+  success: 'success',
+  warning: 'warning',
+  error: 'error',
+  default: 'default',
+};
+
 export default modalType;
