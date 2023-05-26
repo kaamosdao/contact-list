@@ -26,7 +26,7 @@ const ModalForm = ({ onClose, contact }) => (
 ModalForm.propTypes = {
   onClose: PropTypes.func.isRequired,
   contact: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     surname: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
