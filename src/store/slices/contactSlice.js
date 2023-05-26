@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice, createAction } from '@reduxjs/toolkit';
 
 import LocalStorageData from '../../utils/localStorageData';
 
@@ -20,13 +20,13 @@ const contactSlice = createSlice({
   name: 'contacts',
   initialState,
   reducers: {
-    addContact: {
-      reducer: (state, { payload }) => {
-        state.items.push(payload);
-      },
-      prepare: (contact) => ({ payload: { id: nanoid(), ...contact } }),
+    addContactSuccess: (state, { payload }) => {
+      state.items.push(payload);
     },
-    updateContact: (state, { payload }) => {
+    setContactsSuccess: (state, { payload }) => {
+      state.items = payload;
+    },
+    updateContactSuccess: (state, { payload }) => {
       state.items = state.items.map((item) => {
         if (item.id === payload.id) {
           return payload;
@@ -34,13 +34,22 @@ const contactSlice = createSlice({
         return item;
       });
     },
-    deleteContact: (state, { payload }) => {
+    deleteContactSuccess: (state, { payload }) => {
       state.items = state.items.filter((item) => item.id !== payload.id);
     },
   },
 });
 
-export const { addContact, updateContact, deleteContact } =
-  contactSlice.actions;
+export const addContact = createAction('contacts/addContact');
+export const getContacts = createAction('contacts/getContacts');
+export const updateContact = createAction('contacts/updateContact');
+export const deleteContact = createAction('contacts/deleteContact');
+
+export const {
+  addContactSuccess,
+  setContactsSuccess,
+  updateContactSuccess,
+  deleteContactSuccess,
+} = contactSlice.actions;
 
 export default contactSlice.reducer;
