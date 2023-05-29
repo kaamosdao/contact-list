@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+
+import { selectLoading } from '../store/selectors/contactSelectors';
 
 import modalType, { buttonStyle, buttonType } from '../types/types';
 
@@ -8,6 +11,8 @@ import Button from './Button';
 import s from './styles/SectionAddButton.module.scss';
 
 const SectionAddButton = () => {
+  const isLoading = useSelector(selectLoading);
+
   const [modal, setModal] = useState({
     type: null,
     data: null,
@@ -26,6 +31,7 @@ const SectionAddButton = () => {
         style={buttonStyle.add}
         type={buttonType.button}
         title="Add contact"
+        disabled={isLoading}
       />
       {modal.type && (
         <Modal

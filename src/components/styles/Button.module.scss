@@ -27,6 +27,18 @@
   border: 1px solid $orange100;
 }
 
+.buttonAdd:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.buttonAdd:disabled:hover {
+  color: $orange300;
+  background-color: $white;
+  opacity: 0.5;
+  cursor: default;
+}
+
 .buttonSubmit {
   width: 134px;
   min-height: 45px;

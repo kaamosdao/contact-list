@@ -2,12 +2,16 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
-import { hasContacts } from '../store/selectors/contactSelectors';
+import {
+  hasContacts,
+  selectLoading,
+} from '../store/selectors/contactSelectors';
 
 import s from './styles/SectionFilter.module.scss';
 
 const SectionFilter = () => {
   const showInput = useSelector(hasContacts);
+  const isLoading = useSelector(selectLoading);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -26,6 +30,7 @@ const SectionFilter = () => {
             onChange={(e) =>
               setSearchParams({ search: e.target.value.toLowerCase().trim() })
             }
+            disabled={isLoading}
           />
         </label>
       )}
