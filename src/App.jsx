@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     loader: ({ params }) => {
       const contact = store
         .getState()
-        .contacts.items.find(({ id }) => params.contactId === id);
+        .contacts.items.find(({ id }) => params.contactId === String(id));
       return contact;
     },
     element: <ContactPage />,
