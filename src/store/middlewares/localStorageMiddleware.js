@@ -3,6 +3,7 @@ import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit';
 import {
   addContactSuccess,
   deleteContactSuccess,
+  setContactsSuccess,
   updateContactSuccess,
 } from '../slices/contactSlice';
 
@@ -15,7 +16,8 @@ localStorageMiddleware.startListening({
   matcher: isAnyOf(
     addContactSuccess,
     updateContactSuccess,
-    deleteContactSuccess
+    deleteContactSuccess,
+    setContactsSuccess
   ),
   effect: async (_, listenerApi) => {
     const { items } = listenerApi.getState().contacts;
