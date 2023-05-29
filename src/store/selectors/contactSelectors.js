@@ -10,9 +10,9 @@ export const hasContacts = createSelector(
   (contacts) => !!contacts.length
 );
 
-export const selectFilter = createSelector(
-  (state) => state.contacts.filter,
-  (filter) => filter
+export const selectLoading = createSelector(
+  (state) => state.contacts.loading,
+  (loading) => loading
 );
 
 export default selectContacts;

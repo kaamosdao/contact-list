@@ -14,6 +14,7 @@ const getInitContacts = () => {
 
 const initialState = {
   items: getInitContacts(),
+  loading: false,
 };
 
 const contactSlice = createSlice({
@@ -37,6 +38,9 @@ const contactSlice = createSlice({
     deleteContactSuccess: (state, { payload }) => {
       state.items = state.items.filter((item) => item.id !== payload.id);
     },
+    setLoading: (state, { payload }) => {
+      state.loading = payload;
+    },
   },
 });
 
@@ -50,6 +54,7 @@ export const {
   setContactsSuccess,
   updateContactSuccess,
   deleteContactSuccess,
+  setLoading,
 } = contactSlice.actions;
 
 export default contactSlice.reducer;
