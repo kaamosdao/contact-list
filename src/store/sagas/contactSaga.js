@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, call } from 'redux-saga/effects';
 
 import {
   addContactSuccess,
@@ -13,8 +13,7 @@ import {
 } from '../slices/contactSlice';
 
 import httpClient from '../../utils/httpClient';
-import showToast from '../../utils/showToast';
-import { toastType } from '../../types/types';
+import handleErrors from '../../utils/handleErrors';
 
 function* addContactWorker(action) {
   try {
@@ -26,7 +25,7 @@ function* addContactWorker(action) {
     yield put(setLoading(false));
   } catch (e) {
     yield put(setLoading(false));
-    showToast('Network error!', toastType.error);
+    yield call(handleErrors, e);
   }
 }
 
@@ -41,7 +40,7 @@ function* getContactsWorker() {
     yield put(setLoading(false));
   } catch (e) {
     yield put(setLoading(false));
-    showToast('Network error!', toastType.error);
+    yield call(handleErrors, e);
   }
 }
 
@@ -55,7 +54,7 @@ function* updateContactWorker(action) {
     yield put(setLoading(false));
   } catch (e) {
     yield put(setLoading(false));
-    showToast('Network error!', toastType.error);
+    yield call(handleErrors, e);
   }
 }
 
@@ -67,7 +66,7 @@ function* deleteContactWorker(action) {
     yield put(setLoading(false));
   } catch (e) {
     yield put(setLoading(false));
-    showToast('Network error!', toastType.error);
+    yield call(handleErrors, e);
   }
 }
 
