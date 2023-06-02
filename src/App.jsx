@@ -9,10 +9,6 @@ import Main from './components/Main';
 import Notfound from './components/Notfound';
 import ContactPage from './components/ContactPage';
 
-import LocalStorageData from './utils/localStorageData';
-
-const localStorageTodo = new LocalStorageData('contactList');
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -39,10 +35,6 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (localStorageTodo.hasData()) {
-      return;
-    }
-
     dispatch(getContacts());
   }, [dispatch]);
 
