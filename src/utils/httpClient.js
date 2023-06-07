@@ -12,21 +12,27 @@ class HttpClient {
       },
       body: JSON.stringify(data),
     });
+
     if (!response?.ok) {
       const error = new Error('Server error');
       error.isServerError = true;
+
       throw error;
     }
+
     return response;
   }
 
   static async getContacts() {
     const response = await fetch(this.routes.contacts);
+
     if (!response?.ok) {
       const error = new Error('Server error');
       error.isServerError = true;
+
       throw error;
     }
+
     return response;
   }
 
@@ -39,11 +45,14 @@ class HttpClient {
       },
       body: JSON.stringify(data),
     });
+
     if (!response?.ok) {
       const error = new Error('Server error');
       error.isServerError = true;
+
       throw error;
     }
+
     return response;
   }
 
@@ -51,11 +60,14 @@ class HttpClient {
     const response = await fetch(`${this.routes.contacts}/${data.id}`, {
       method: 'DELETE',
     });
+
     if (!response?.ok) {
       const error = new Error('Server error');
       error.isServerError = true;
+
       throw error;
     }
+
     return response;
   }
 }
