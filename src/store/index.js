@@ -1,13 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
+import createSagaMiddleware from 'redux-saga';
 
 import contactReducer from './slices/contactSlice.js';
+import contacWatcher from './sagas/contactSaga';
 
-import localStorageMiddleware from './middlewares/localStorageMiddleware.js';
+const sagaMiddleware = createSagaMiddleware();
 
 export default configureStore({
   reducer: {
     contacts: contactReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().prepend(localStorageMiddleware.middleware),
+    getDefaultMiddleware().prepend(sagaMiddleware),
 });
+
+sagaMiddleware.run(contacWatcher);

@@ -7,8 +7,14 @@ dev:
 build:
 	npx cross-env NODE_ENV=production webpack --mode production
 
+start-front:
+	npm run start-frontend
+
+start-back:
+	npm run start-backend
+
 serve:
-	npx cross-env NODE_ENV=development webpack serve --mode development --open
+	npm run start-frontend | npm run start-backend
 
 lint:
 	npm run lint

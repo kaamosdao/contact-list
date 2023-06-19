@@ -1,4 +1,5 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import SectionAddButton from './SectionAddButton';
 import SectionFilter from './SectionFitler';
@@ -12,6 +13,7 @@ const Main = () => (
     <SectionAddButton />
     <SectionFilter />
     <SectionContactList />
+    <ToastContainer />
   </main>
 );
 
