@@ -1,0 +1,59 @@
+@import './variables.scss';
+
+@mixin font(
+  $weight: normal,
+  $size: 14px,
+  $height: 24px,
+  $letter-spacing: normal
+) {
+  font-family: $font-family;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin h1($color: $black) {
+  @include font(bold, 40px, 40px);
+  color: $color;
+
+  @media (min-width: $tablet-lg-width) {
+    @include font(bold, 45px, 45px);
+  }
+}
+
+@mixin h2($color: $black) {
+  @include font(bold, 30px, 36px);
+  color: $color;
+
+  @media (min-width: $tablet-lg-width) {
+    @include font(bold, 33px, 36px);
+  }
+}
+
+@mixin h3($color: $black) {
+  @include font(normal, 25px, 36px);
+  color: $color;
+
+  @media (min-width: $tablet-lg-width) {
+    @include font(normal, 30px, 36px);
+  }
+}
+
+@mixin p-normal($color: $black) {
+  @include font(normal, 18px, 36px);
+  color: $color;
+
+  @media (min-width: $tablet-lg-width) {
+    @include font(normal, 20px, 36px);
+  }
+}
+
+@mixin p-md($color: $black) {
+  @include font(normal, 22px, 25px);
+  color: $color;
+
+  @media (min-width: $tablet-lg-width) {
+    @include font(normal, 25px, 36px);
+  }
+}

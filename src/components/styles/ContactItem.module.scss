@@ -1,0 +1,89 @@
+@import '../../../assets/styles/global/variables.scss';
+@import '../../../assets/styles/global/mixin.scss';
+
+.item {
+  display: flex;
+  align-items: center;
+  margin: 20px auto 0;
+  padding: 10px;
+  width: auto;
+  max-width: 420px;
+  border: 1px solid $green400;
+  border-radius: 10px;
+  background: none;
+  cursor: pointer;
+
+  @media (min-width: $tablet-lg-width) {
+    max-width: 500px;
+  }
+}
+
+.item:hover {
+  border-color: $orange300;
+}
+
+.item:hover .name {
+  color: $orange300;
+}
+
+.item:active {
+  border-color: $orange100;
+}
+
+.item:active .name {
+  color: $orange100;
+}
+
+.name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0;
+  @include p-normal();
+}
+
+.viewButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.viewIcon {
+  fill: $orange200;
+}
+
+.viewButton:hover .viewIcon {
+  fill: $orange300;
+}
+
+.viewButton:active .viewIcon {
+  fill: $orange100;
+}
+
+.editButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.editButton:hover .editIcon {
+  fill: $orange300;
+}
+
+.editButton:active .editIcon {
+  fill: $orange100;
+}

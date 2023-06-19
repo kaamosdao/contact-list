@@ -1,0 +1,35 @@
+@import '../../../assets/styles/global/variables.scss';
+@import '../../../assets/styles/global/mixin.scss';
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content);
+  row-gap: 30px;
+  margin: 0 0 35px 0;
+  padding: 0;
+  list-style-type: none;
+
+  @media (min-width: 1300px) {
+    grid-template-columns: repeat(2, 48.7%);
+    column-gap: 20px;
+  }
+
+  @media (min-width: $desktop-md-width) {
+    grid-template-columns: repeat(2, 48.7%);
+    row-gap: 34px;
+    margin: 0 0 50px 0;
+  }
+
+  @media (min-width: $desktop-lg-width) {
+    grid-template-columns: repeat(2, 48.5%);
+    column-gap: 3%;
+  }
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

@@ -1,0 +1,50 @@
+@import '../../../../assets/styles/global/variables.scss';
+
+.modalForm {
+  position: relative;
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 20px;
+  width: 80%;
+  min-width: 320px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+
+  @media (min-width: $tablet-lg-width) {
+    width: 720px;
+  }
+
+  @media (min-width: $desktop-sm-width) {
+    width: 70%;
+  }
+
+  @media (min-width: $desktop-lg-width) {
+    max-width: 1500px;
+  }
+}
+
+.buttonClose {
+  position: absolute;
+  top: 3%;
+  right: 4%;
+  font-size: 30px;
+  color: $black;
+  border: none;
+  background-color: transparent;
+  transform: rotate(45deg);
+  cursor: pointer;
+
+  @media (min-width: $desktop-sm-width) {
+    top: 3%;
+    right: 2%;
+  }
+}
+
+.buttonClose:hover {
+  color: $orange300;
+}
+
+.buttonClose:active {
+  color: $orange100;
+}

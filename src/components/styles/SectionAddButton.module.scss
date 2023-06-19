@@ -1,0 +1,16 @@
+@import '../../../assets/styles/global/variables.scss';
+@import '../../../assets/styles/global/mixin.scss';
+
+.addSection {
+  position: relative;
+  min-width: 360px;
+  width: 84%;
+  text-align: center;
+  @media (min-width: $tablet-lg-width) {
+    width: 60%;
+  }
+
+  @media (min-width: $desktop-md-width) {
+    width: 900px;
+  }
+}

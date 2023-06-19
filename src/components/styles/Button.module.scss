@@ -1,0 +1,118 @@
+@import '../../../assets/styles/global/variables.scss';
+@import '../../../assets/styles/global/mixin.scss';
+
+.buttonAdd {
+  width: 114px;
+  min-height: 40px;
+  @include font(normal, 16px, 144%);
+  color: $orange300;
+  background-color: $white;
+  border: 1px solid $orange200;
+  border-radius: 10px;
+
+  @media (min-width: $tablet-lg-width) {
+    width: 118px;
+    @include font(normal, 17px, 142%);
+  }
+}
+
+.buttonAdd:hover {
+  color: $white;
+  background-color: $orange200;
+  cursor: pointer;
+}
+
+.buttonAdd:active {
+  background-color: $orange100;
+  border: 1px solid $orange100;
+}
+
+.buttonAdd:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.buttonAdd:disabled:hover {
+  color: $orange300;
+  background-color: $white;
+  opacity: 0.5;
+  cursor: default;
+}
+
+.buttonSubmit {
+  width: 134px;
+  min-height: 45px;
+  padding: 12px;
+  @include font(normal, 16px, 130%);
+  color: $white;
+  background-color: $green400;
+  border: none;
+  border-radius: 10px;
+
+  @media (min-width: $desktop-md-width) {
+    width: 235px;
+    min-height: 58px;
+    padding: 15px;
+    @include font(normal, 20px, 130%);
+  }
+}
+
+.buttonSubmit:hover {
+  background-color: $green300;
+  cursor: pointer;
+}
+
+.buttonSubmit:active {
+  background-color: $green200;
+}
+
+.buttonSubmit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.buttonSubmit:disabled:hover {
+  background-color: $green400;
+  opacity: 0.5;
+  cursor: default;
+}
+
+.buttonDelete {
+  width: 134px;
+  min-height: 47px;
+  margin-left: 10px;
+  padding: 12px;
+  @include font(normal, 16px, 130%);
+  color: $green400;
+  background-color: $green100;
+  border: none;
+  border-radius: 10px;
+
+  @media (min-width: $desktop-md-width) {
+    min-width: 235px;
+    min-height: 58px;
+    margin-left: 30px;
+    padding: 15px;
+    @include font(normal, 20px, 130%);
+  }
+}
+
+.buttonDelete:hover {
+  background-color: $grey100;
+  cursor: pointer;
+}
+
+.buttonDelete:active {
+  background-color: $grey200;
+}
+
+.buttonDelete:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.buttonDelete:disabled:hover {
+  background-color: $green100;
+  opacity: 0.5;
+  cursor: default;
+}
